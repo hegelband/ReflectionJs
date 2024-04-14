@@ -4,10 +4,8 @@ import getFunctionArgsNames from "./src/getFunctionArgsNames";
 import getModuleImports from "./src/getModuleImports";
 import parseType from "./src/parseType";
 
-export default {
-    getArgumentDefaultValue,
-    getClassConstructorArgsNames,
-    getFunctionArgsNames,
-    getModuleImports,
-    parseType,
-};
+export const getArgumentDefaultValue = getArgumentDefaultValue;
+export const getClassConstructorArgsNames = getClassConstructorArgsNames;
+export const getFunctionArgsNames = getFunctionArgsNames;
+export const getModuleImports = getModuleImports;
+export const parseType = parseType;
