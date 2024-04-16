@@ -1,4 +1,5 @@
 import argDefaultValue from "./src/getArgumentDefaultValue";
+import getBaseClassConstructor from "./src/getBaseClassConstructor";
 import classConstructorArgsNames from "./src/getClassConstructorArgsNames";
 import functionArgsNames from "./src/getFunctionArgsNames";
 import moduleImports from "./src/getModuleImports";
@@ -9,6 +10,7 @@ export const getClassConstructorArgsNames = classConstructorArgsNames;
 export const getFunctionArgsNames = functionArgsNames;
 export const getModuleImports = moduleImports;
 export const parseType = getType;
+export const getBaseClass = getBaseClassConstructor;
 
 export default {
     getArgumentDefaultValue,
@@ -16,4 +18,5 @@ export default {
     getFunctionArgsNames,
     getModuleImports,
     parseType,
+    getBaseClass,
 };
