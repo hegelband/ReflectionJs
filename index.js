@@ -1,9 +1,9 @@
-import argDefaultValue from "./src/getArgumentDefaultValue";
-import getBaseClassConstructor from "./src/getBaseClassConstructor";
-import classConstructorArgsNames from "./src/getClassConstructorArgsNames";
-import functionArgsNames from "./src/getFunctionArgsNames";
-import moduleImports from "./src/getModuleImports";
-import getType from "./src/parseType";
+import argDefaultValue from "./src/getArgumentDefaultValue.js";
+import getBaseClassConstructor from "./src/getBaseClassConstructor.js";
+import classConstructorArgsNames from "./src/getClassConstructorArgsNames.js";
+import functionArgsNames from "./src/getFunctionArgsNames.js";
+import moduleImports from "./src/getModuleImports.js";
+import getType from "./src/parseType.js";
 
 export const getArgumentDefaultValue = argDefaultValue;
 export const getClassConstructorArgsNames = classConstructorArgsNames;
