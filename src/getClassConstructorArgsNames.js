@@ -1,11 +1,22 @@
+import parseType from "./parseType.js";
+
 class HasNoConstructorError extends Error {
     constructor() {
-        this.message = 'DI object has no one constructor. Need one or more.';
-        super(this.message);
+        const message = 'DI object has no one constructor. Need one or more.';
+        super(message);
     }
 }
 
-const getClassConstructorArgsNames = clsStr => {
+class ClsStrInvalidType extends Error {
+    constructor(cls) {
+        const message = 'Argument clsStr with invalid type. Argument value type must be a string.';
+        super(message);
+    }
+}
+
+const getClassConstructorArgsNames = cls => {
+    if (parseType(cls) !== 'class') throw new ClsStrInvalidType(cls);
+    const clsStr = cls.toString();
     const separator = 'constructor';
     const startIndex = clsStr.indexOf(separator, 0);
     if (startIndex === -1) {
