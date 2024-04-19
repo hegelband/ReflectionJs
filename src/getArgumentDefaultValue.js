@@ -1,4 +1,4 @@
-import getStringifiedEntityName from "./getStringifiedEntityName";
+import getStringifiedEntityName from "./getStringifiedEntityName.js";
 
 function getArgumentDefaultValue(arg) {
     if (!arg) return null;
