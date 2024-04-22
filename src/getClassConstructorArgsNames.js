@@ -7,15 +7,16 @@ class HasNoConstructorError extends Error {
     }
 }
 
-class ClsStrInvalidType extends Error {
-    constructor(cls) {
-        const message = 'Argument clsStr with invalid type. Argument value type must be a string.';
+class ClsArgumentInvalidType extends Error {
+    constructor(clsType) {
+        const message = `Argument cls with invalid type - ${clsType}. Argument value type must be a class.`;
         super(message);
     }
 }
 
 const getClassConstructorArgsNames = cls => {
-    if (parseType(cls) !== 'class') throw new ClsStrInvalidType(cls);
+    const clsType = parseType(cls);
+    if (clsType !== 'class') throw new ClsArgumentInvalidType(clsType);
     const clsStr = cls.toString();
     const separator = 'constructor';
     const startIndex = clsStr.indexOf(separator, 0);
