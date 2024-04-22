@@ -18,7 +18,7 @@ class ArgumentIsEmptyString extends Error {
 function getArgumentDefaultValue(argStr) {
     const argType = parseType(argStr);
     if (argType !== 'string') throw new ArgumentInvalidType(argType);
-    if (argType === '') throw new ArgumentIsEmptyString();
+    if (argStr === '') throw new ArgumentIsEmptyString();
     const parts = argStr.split('=');
     return {
         name: parts[0].trim(),
