@@ -1,6 +1,5 @@
-const chai = await import('chai');
-const getStringifiedEntityName = await import('../getStringifiedEntityName.js').then(p => p.default);
-const assert = chai.assert;
+import { assert } from 'chai';
+import getStringifiedEntityName from '../getStringifiedEntityName.js';
 
 describe('getArgumentDefaultValue', function () {
     describe('getStringifiedEntityName()', function () {

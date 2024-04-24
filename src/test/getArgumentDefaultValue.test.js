@@ -1,6 +1,5 @@
-const chai = await import('chai');
-const getArgumentDefaultValue = await import('../getArgumentDefaultValue.js').then(p => p.default);
-const assert = chai.assert;
+import { assert } from 'chai';
+import getArgumentDefaultValue from '../getArgumentDefaultValue.js';
 
 describe('getArgumentDefaultValue', function () {
     describe('getArgumentDefaultValue()', function () {

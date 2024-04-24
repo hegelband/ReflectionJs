@@ -1,6 +1,5 @@
-const chai = await import('chai');
-const parseType = await import('../parseType.js').then(p => p.default);
-const assert = chai.assert;
+import { assert } from 'chai';
+import parseType from '../parseType.js';
 
 describe('parseType', function () {
     describe('parseType()', function () {

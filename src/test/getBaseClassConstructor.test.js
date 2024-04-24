@@ -1,6 +1,5 @@
-const chai = await import('chai');
-const getBaseClassConstructor = await import('../getBaseClassConstructor.js').then(p => p.default);
-const assert = chai.assert;
+import { assert } from 'chai';
+import getBaseClassConstructor from '../getBaseClassConstructor.js';
 
 describe('getBaseClassConstructor', function () {
     describe('getBaseClassConstructor()', function () {

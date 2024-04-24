@@ -1,6 +1,5 @@
-const chai = await import('chai');
-const getFunctionArgsNames = await import('../getFunctionArgsNames.js').then(p => p.default);
-const assert = chai.assert;
+import { assert } from 'chai';
+import getFunctionArgsNames from '../getFunctionArgsNames.js';
 
 describe('getFunctionArgsNames', function () {
     describe('getFunctionArgsNames()', function () {
