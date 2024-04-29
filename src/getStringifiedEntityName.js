@@ -1,4 +1,4 @@
-import parseType from "./parseType.js";
+const parseType = require("./parseType.js");
 
 class EntityStrInvalidType extends Error {
     constructor(entityStr, entityStrType) {
@@ -24,4 +24,4 @@ const getStringifiedEntityName = (entityStr) => {
     return entityStr;
 };
 
-export default getStringifiedEntityName;
+module.exports = getStringifiedEntityName;

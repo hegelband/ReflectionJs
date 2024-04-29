@@ -1,5 +1,5 @@
-import getStringifiedEntityName from "./getStringifiedEntityName.js";
-import parseType from "./parseType.js";
+const getStringifiedEntityName = require("./getStringifiedEntityName.js");
+const parseType = require("./parseType.js");
 
 class ArgumentInvalidType extends Error {
     constructor(argType) {
@@ -26,4 +26,4 @@ function getArgumentDefaultValue(argStr) {
     };
 }
 
-export default getArgumentDefaultValue;
+module.exports = getArgumentDefaultValue;

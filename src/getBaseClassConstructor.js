@@ -1,4 +1,4 @@
-import parseType from "./parseType.js";
+const parseType = require("./parseType.js");
 
 class ClassInvalidType extends Error {
     constructor(argType) {
@@ -14,4 +14,4 @@ const getBaseClassConstructor = (cls) => {
     return constructor;
 };
 
-export default getBaseClassConstructor;
+module.exports = getBaseClassConstructor;

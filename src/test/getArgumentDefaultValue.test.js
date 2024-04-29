@@ -1,5 +1,6 @@
-import { assert } from 'chai';
-import getArgumentDefaultValue from '../getArgumentDefaultValue.js';
+let assert;
+import('chai').then(chai => assert = chai.assert);
+const getArgumentDefaultValue = require('../getArgumentDefaultValue.js');
 
 describe('getArgumentDefaultValue', function () {
     describe('getArgumentDefaultValue()', function () {

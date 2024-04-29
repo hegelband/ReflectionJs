@@ -1,5 +1,5 @@
-import { findCloseBraceIndex, splitArgsStrByCommas } from "./getFunctionArgsNames.js";
-import parseType from "./parseType.js";
+const { findCloseBraceIndex, splitArgsStrByCommas } = require("./getFunctionArgsNames.js");
+const parseType = require("./parseType.js");
 
 class HasNoConstructorError extends Error {
     constructor() {
@@ -29,7 +29,6 @@ const getClassConstructorArgsNames = cls => {
     const argsStr = clsStr.slice(openBraceStartIndex + 1, closeBraceStartIndex);
     const argsSplittedArray = splitArgsStrByCommas(argsStr)
     const args = argsSplittedArray.map(arg => arg.trim()).filter(arg => arg !== '');
-    console.log(args);
     return {
         startPosition: startIndex,
         args,
@@ -37,4 +36,4 @@ const getClassConstructorArgsNames = cls => {
 
 }
 
-export default getClassConstructorArgsNames;
+module.exports = getClassConstructorArgsNames;

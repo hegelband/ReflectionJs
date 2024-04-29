@@ -1,5 +1,6 @@
-import { assert } from 'chai';
-import getFunctionArgsNames from '../getFunctionArgsNames.js';
+let assert;
+import('chai').then(chai => assert = chai.assert);
+const getFunctionArgsNames = require('../getFunctionArgsNames.js');
 
 describe('getFunctionArgsNames', function () {
     describe('getFunctionArgsNames()', function () {

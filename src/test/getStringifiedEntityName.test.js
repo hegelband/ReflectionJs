@@ -1,5 +1,6 @@
-import { assert } from 'chai';
-import getStringifiedEntityName from '../getStringifiedEntityName.js';
+let assert;
+import('chai').then(chai => assert = chai.assert);
+const getStringifiedEntityName = require('../getStringifiedEntityName.js');
 
 describe('getArgumentDefaultValue', function () {
     describe('getStringifiedEntityName()', function () {

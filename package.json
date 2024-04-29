@@ -16,7 +16,6 @@
     "url": "https://github.com/kelian9/ReflectionJs/issues"
   },
   "homepage": "https://github.com/kelian9/ReflectionJs#readme",
-  "type": "module",
   "dependencies": {
     "chai": "^5.1.0",
     "mocha": "^10.4.0"

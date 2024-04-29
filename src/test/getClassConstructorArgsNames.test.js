@@ -1,5 +1,6 @@
-import { assert } from 'chai';
-import getClassConstructorArgsNames from '../getClassConstructorArgsNames.js';
+let assert;
+import('chai').then(chai => assert = chai.assert);
+const getClassConstructorArgsNames = require('../getClassConstructorArgsNames.js');
 
 describe('getClassConstructorArgsNames', function () {
     describe('getClassConstructorArgsNames()', function () {

@@ -1,4 +1,4 @@
-import parseType from "./parseType.js";
+const parseType = require("./parseType.js");
 
 class FuncArgumentInvalidType extends Error {
     constructor(funcType) {
@@ -7,7 +7,7 @@ class FuncArgumentInvalidType extends Error {
     }
 }
 
-export const findCloseBraceIndex = (str, startIndex) => {
+const findCloseBraceIndex = (str, startIndex) => {
     const openBraceIndex = str.indexOf('(', startIndex);
     let closeBraceIndex = str.indexOf(')', openBraceIndex);
     const getOpenBracesCount = (end) =>
@@ -43,7 +43,7 @@ const findArgsSeparatorCommas = (str) => {
     return argsSeparatorCommas.map(c => c.index);
 };
 
-export const splitArgsStrByCommas = argsStr => {
+const splitArgsStrByCommas = argsStr => {
     // -1 is first, because next step will be slice with startIndex = separator[i] + 1
     const separators = [-1, ...findArgsSeparatorCommas(argsStr), null];
     return separators.slice(1).map((commaIndex, i) => (
@@ -81,4 +81,6 @@ const getFunctionArgsNames = func => {
 
 }
 
-export default getFunctionArgsNames;
+module.exports = getFunctionArgsNames;
+module.exports.findCloseBraceIndex = findCloseBraceIndex;
+module.exports.splitArgsStrByCommas = splitArgsStrByCommas;

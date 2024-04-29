@@ -1,5 +1,6 @@
-import { assert } from 'chai';
-import parseType from '../parseType.js';
+let assert;
+import('chai').then(chai => assert = chai.assert);
+const parseType = require('../parseType.js');
 
 describe('parseType', function () {
     describe('parseType()', function () {

@@ -8,4 +8,4 @@ function parseType(data) {
     return typeStr.startsWith('class') ? 'class' : 'function';
 }
 
-export default parseType;
+module.exports = parseType;
