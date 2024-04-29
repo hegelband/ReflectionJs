@@ -1,3 +1,4 @@
+import { findCloseBraceIndex, splitArgsStrByCommas } from "./getFunctionArgsNames.js";
 import parseType from "./parseType.js";
 
 class HasNoConstructorError extends Error {
@@ -24,9 +25,11 @@ const getClassConstructorArgsNames = cls => {
         throw new HasNoConstructorError();
     }
     const openBraceStartIndex = clsStr.indexOf('(', startIndex);
-    const closeBraceStartIndex = clsStr.indexOf(')', openBraceStartIndex);
+    let closeBraceStartIndex = findCloseBraceIndex(clsStr, openBraceStartIndex);
     const argsStr = clsStr.slice(openBraceStartIndex + 1, closeBraceStartIndex);
-    const args = argsStr.split(',').map(arg => arg.trim()).filter(arg => arg !== '');
+    const argsSplittedArray = splitArgsStrByCommas(argsStr)
+    const args = argsSplittedArray.map(arg => arg.trim()).filter(arg => arg !== '');
+    console.log(args);
     return {
         startPosition: startIndex,
         args,

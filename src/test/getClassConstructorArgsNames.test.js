@@ -84,4 +84,67 @@ describe('getClassConstructorArgsNames', function () {
             }
         );
     });
+
+    describe('getClassConstructorArgsNames(class with constructor(a = () => (1), b, c))', function () {
+        it(
+            `should return {
+                startPosition: 30,
+                args: ['a = () => (1)', 'b', 'c'],
+            }`,
+            function () {
+                class Abstract {
+                    constructor() { }
+                }
+                class A {
+                    constructor(a = () => (1), b, c) { }
+                }
+                assert.deepEqual(getClassConstructorArgsNames(A), {
+                    startPosition: 30,
+                    args: ['a = () => (1)', 'b', 'c'],
+                });
+            }
+        );
+    });
+
+    describe('getClassConstructorArgsNames(class with constructor(a = () => (() => (1)), b, c))', function () {
+        it(
+            `should return {
+                startPosition: 30,
+                args: ['a = () => (() => (1))', 'b', 'c'],
+            }`,
+            function () {
+                class Abstract {
+                    constructor() { }
+                }
+                class A {
+                    constructor(a = () => (() => (1)), b, c) { }
+                }
+                assert.deepEqual(getClassConstructorArgsNames(A), {
+                    startPosition: 30,
+                    args: ['a = () => (() => (1))', 'b', 'c'],
+                });
+            }
+        );
+    });
+
+    describe('getClassConstructorArgsNames(class with constructor(a = () => (() => ({ r: 1, t: 2 })), b, c))', function () {
+        it(
+            `should return {
+                startPosition: 30,
+                args: ['a = () => (() => ({ r: 1, t: 2 }))', 'b', 'c'],
+            }`,
+            function () {
+                class Abstract {
+                    constructor() { }
+                }
+                class A {
+                    constructor(a = () => (() => ({ r: 1, t: 2 })), b, c) { }
+                }
+                assert.deepEqual(getClassConstructorArgsNames(A), {
+                    startPosition: 30,
+                    args: ['a = () => (() => ({ r: 1, t: 2 }))', 'b', 'c'],
+                });
+            }
+        );
+    });
 });

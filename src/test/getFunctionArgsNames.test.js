@@ -106,4 +106,61 @@ describe('getFunctionArgsNames', function () {
             }
         );
     });
+
+    describe('Argument with default value: getFunctionArgsNames(const A = (a = () => Entity, b, c) => {})', function () {
+        it(
+            `should return {
+                startPosition: 0,
+                args: ['a = () => Entity', 'b', 'c'],
+            }`,
+            function () {
+                class Entity { }
+                const A = (a = () => Entity, b, c) => {
+
+                }
+                assert.deepEqual(getFunctionArgsNames(A), {
+                    startPosition: 0,
+                    args: ['a = () => Entity', 'b', 'c'],
+                });
+            }
+        );
+    });
+
+    describe('Argument with default value: getFunctionArgsNames(const A = (a = () => (() => Entity), b, c) => {})', function () {
+        it(
+            `should return {
+                startPosition: 0,
+                args: ['a = () => (() => Entity)', 'b', 'c'],
+            }`,
+            function () {
+                class Entity { }
+                const A = (a = () => (() => Entity), b, c) => {
+
+                }
+                assert.deepEqual(getFunctionArgsNames(A), {
+                    startPosition: 0,
+                    args: ['a = () => (() => Entity)', 'b', 'c'],
+                });
+            }
+        );
+    });
+
+    describe('Argument with default value: getFunctionArgsNames(const A = (a = () => (() => ({ r: 1, t: 2 })), b, c) => {})', function () {
+        it(
+            `should return {
+                startPosition: 0,
+                args: ['a = () => (() => ({ r: 1, t: 2 }))', 'b', 'c'],
+            }`,
+            function () {
+                class Entity { }
+                const A = (a = () => (() => ({ r: 1, t: 2 })), b, c) => {
+
+                }
+                assert.deepEqual(getFunctionArgsNames(A), {
+                    startPosition: 0,
+                    args: ['a = () => (() => ({ r: 1, t: 2 }))', 'b', 'c'],
+                });
+            }
+        );
+    });
 });
