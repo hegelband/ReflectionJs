@@ -55,7 +55,7 @@ const splitArgsStrByCommas = argsStr => {
 
 const getFunctionArgsNames = func => {
     const funcType = parseType(func);
-    if (funcType !== 'function') throw new FuncArgumentInvalidType(funcType);
+    if (funcType !== 'function' && funcType !== 'function class') throw new FuncArgumentInvalidType(funcType);
     const funcStr = func.toString();
     const openBraceIndex = funcStr.indexOf('(', 0);
     const closeBraceIndex = findCloseBraceIndex(funcStr, openBraceIndex);
