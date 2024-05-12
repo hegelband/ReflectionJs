@@ -5,7 +5,7 @@ function parseType(data) {
         return type;
     };
     const typeStr = data.toString();
-    return typeStr.startsWith('class') ? 'class' : 'function';
+    return typeStr.startsWith('class') || typeStr.includes('_classCallCheck') ? 'class' : 'function';
 }
 
 module.exports = parseType;
