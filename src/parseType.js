@@ -5,7 +5,13 @@ function parseType(data) {
         return type;
     };
     const typeStr = data.toString();
-    return typeStr.startsWith('class') || typeStr.includes('_classCallCheck') ? 'class' : 'function';
+    if (typeStr.startsWith('class')) {
+        return 'class';
+    } else if (typeStr.includes('_classCallCheck')) {
+        return 'function class';
+    } else {
+        return 'function';
+    }
 }
 
 module.exports = parseType;
