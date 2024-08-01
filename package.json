@@ -33,7 +33,7 @@
 		"url": "https://github.com/kelian9/ReflectionJs/issues"
 	},
 	"homepage": "https://github.com/kelian9/ReflectionJs#readme",
-	"dependencies": {
+	"dev-dependencies": {
 		"@babel/core": "^7.24.5",
 		"@babel/preset-env": "^7.24.5",
 		"@commitlint/cli": "^19.3.0",
