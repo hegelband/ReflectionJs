@@ -6,6 +6,7 @@
 	"module": "./dist/RelfectionJS-esm.js",
 	"browser": "./dist/RelfectionJS-esm.js",
 	"jsnext:main": "./dist/RelfectionJS-esm.js",
+	"types": "./types/index.d.ts",
 	"scripts": {
 		"prepare": "husky",
 		"test": "cd src && mocha",
