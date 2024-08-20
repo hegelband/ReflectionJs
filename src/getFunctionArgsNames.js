@@ -1,12 +1,26 @@
 const parseType = require("./parseType.js");
 
+/** Class representing an error thrown when getFunctionArgsNames `func` arg type isn't a function.
+ * @class
+ * @extends Error
+ */
 class FuncArgumentInvalidType extends Error {
+	/**
+	 *
+	 * @param {string} funcType
+	 */
 	constructor(funcType) {
 		const message = `Argument func with invalid type - ${funcType}. Argument value type must be a function.`;
 		super(message);
 	}
 }
 
+/** Returns closing brace index
+ *
+ * @param {string} str
+ * @param {number} startIndex
+ * @returns {number}
+ */
 const findCloseBraceIndex = (str, startIndex) => {
 	const openBraceIndex = str.indexOf("(", startIndex);
 	let closeBraceIndex = str.indexOf(")", openBraceIndex);
@@ -26,6 +40,11 @@ const findCloseBraceIndex = (str, startIndex) => {
 	return closeBraceIndex;
 };
 
+/** Returns array of commas indexes
+ *
+ * @param {string} str
+ * @returns {number[]}
+ */
 const findArgsSeparatorCommas = (str) => {
 	const allCommas = str
 		.split("")
@@ -58,6 +77,11 @@ const findArgsSeparatorCommas = (str) => {
 	return argsSeparatorCommas.map((c) => c.index);
 };
 
+/**	Returns arguments stringified by toString
+ *
+ * @param {string} argsStr
+ * @returns {string[]}
+ */
 const splitArgsStrByCommas = (argsStr) => {
 	// -1 is first, because next step will be slice with startIndex = separator[i] + 1
 	const separators = [-1, ...findArgsSeparatorCommas(argsStr), null];
@@ -66,6 +90,17 @@ const splitArgsStrByCommas = (argsStr) => {
 		.map((commaIndex, i) => (commaIndex === null ? argsStr.slice(separators[i] + 1) : argsStr.slice(separators[i] + 1, commaIndex)));
 };
 
+/**
+ * @typedef { Object } ParsedArgumentsType
+ * @property { number } startPosition
+ * @property { string[] } args - constructor stringified args commas separated
+ */
+
+/**
+ *
+ * @param {function} func
+ * @returns {ParsedArgumentsType}
+ */
 const getFunctionArgsNames = (func) => {
 	const funcType = parseType(func);
 	if (funcType !== "function" && funcType !== "function class") throw new FuncArgumentInvalidType(funcType);
