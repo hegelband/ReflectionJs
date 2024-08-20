@@ -1,3 +1,12 @@
+/**
+ * @typedef {'function'|'class'|'function class'|'string'|'number'|'boolean'|'symbol'|'object'|'undefined'} ParseTypeReturnType
+ */
+
+/**
+ *
+ * @param {any} data
+ * @returns {ParseTypeReturnType}
+ */
 function parseType(data) {
 	const type = typeof data;
 	if (type !== "function") {
